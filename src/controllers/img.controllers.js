@@ -7,7 +7,9 @@ ctrl.vistaPrincipal=(req,res)=>{
 };
 
 //crud
-
+ctrl.guardarImg=(req,res)=>{
+    console.log(req.files);
+};
 
 
 
