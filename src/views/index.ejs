@@ -6,13 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="http://localhost:3000/img" method='post' id="form" enctype="multipart/form-data"></form>
+    <!-- <form action="http://localhost:3000/img" method='post' id="form" enctype="multipart/form-data"> -->
+    <form id="form" enctype="multipart/form-data">
     
-        <input type="file" name="archivo" id="file" >
+        <input type="file" name="archivo" id="file" accept="image/*">
         <button type="submit">Cargar</button>
     </form>
     
-
-    <script src="js/guardar.js"></script>
+<script src="/js/guardar.js"></script>
 </body>
 </html>

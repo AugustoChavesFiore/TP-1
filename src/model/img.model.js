@@ -10,6 +10,14 @@ const Imagenes=sequelize.define('Imagen',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    imgPath:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    estado:{
+        type:DataTypes.BOOLEAN,
+        defaultValue:true
+    },
     createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -38,3 +46,4 @@ const Imagenes=sequelize.define('Imagen',{
     
 
 
+module.exports = Imagenes;

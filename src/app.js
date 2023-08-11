@@ -4,11 +4,14 @@ const cors=require('cors');
 const morgan=require('morgan');
 const path = require('path');
 const fileUpload = require('express-fileupload');
+const { conectarDB } = require('./db');
 require('dotenv').config();
 require('ejs');
 
 const app=express();
 const port=process.env.PORT || 3000; 
+
+conectarDB();
 
 
 //mid
