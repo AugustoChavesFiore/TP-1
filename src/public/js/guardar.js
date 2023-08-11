@@ -1,26 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('#form');
-  
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-  
-      const formData = new FormData(form);
-  
-      try {
-        const response = await fetch('/img', {
-          method: 'POST',
-          body: formData,
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const response = await fetch("/img", {
+        method: "POST",
+        body: formData,
+      });
+      
+      if (response.status !== 201) {
+        return Swal.fire({
+          title: 'Error',
+          text: 'Hubo un error al cargar la imagen',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
         });
-  
-        if (response.ok) {
-          const data = await response.text();
-          alert(data);
-        } else {
-          throw new Error('Error ');
-        }
-      } catch (error) {
-        console.error('Error al cargar la imagen:', error);
-        alert('Error al cargar la imagen.');
       }
-    });
+      const data = await response.json();
+      
+    Swal.fire({
+      title: 'Imagen Cargada',
+      text: data.message,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
   });
+
+  setTimeout(() => {
+      window.location.href = "/galeria"
+  }, 2000);
+  
+     
+});
+});
