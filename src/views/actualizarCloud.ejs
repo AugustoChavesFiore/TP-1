@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body class="">
+    <main class="container  text-center">
+        <section class="my-5 border rounded-3 ">
+            <h3>Actualizar imagen de Forma local</h3>
+            <form id="form" class="form-control-sm" enctype="multipart/form-data" data-id="<%= id  %>" >
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Carga Local</label>
+                    <input class="form-control" type="file" id="File" type="file" name="archivo" accept="image/*">
+                  </div>
+                <button type="submit" class="btn btn-primary">Cargar</button>
+                <a href="/galeria" class="btn btn-primary">Galeria</a>
+            </form>
+        </section>      
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
+    <script src="/js/actualizarCloud.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

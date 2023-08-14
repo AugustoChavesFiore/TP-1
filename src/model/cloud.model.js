@@ -1,16 +1,12 @@
 const { sequelize, DataTypes } = require("../db");
 
-const Imagenes=sequelize.define('Imagen',{
+const imgCloud=sequelize.define('cloud',{
     id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
-    imgName:{
-        type:DataTypes.STRING,
-        allowNull:false
-    },
-    imgPath:{
+    imgUrl:{
         type:DataTypes.STRING,
         allowNull:false
     },
@@ -37,13 +33,13 @@ const Imagenes=sequelize.define('Imagen',{
     createdAt: true,
     updatedAt: true,
     deletedAt: true,
-    tableName: 'imagenes'}
+    tableName: 'cloud'}
     );
 
-    Imagenes.sync({force:false}).then(()=>{
-        console.log('Tabla de imagenes creada');
+    imgCloud.sync({force:false}).then(()=>{
+        console.log('Tabla de cloud creada');
     });
     
 
 
-module.exports = Imagenes;
+module.exports = imgCloud;
