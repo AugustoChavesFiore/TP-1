@@ -10,6 +10,11 @@ const imgCloud=sequelize.define('cloud',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    publicId:{
+        type:DataTypes.STRING,
+        allowNull:false,
+        unique:true
+    },
     estado:{
         type:DataTypes.BOOLEAN,
         defaultValue:true

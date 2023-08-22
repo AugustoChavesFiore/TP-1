@@ -9,7 +9,7 @@ ctrlCloud.actualizarCloud=(req,res)=>{
 
 ctrlCloud.guardarImg=async (req, res) => {
     if (!req.files || Object.keys(req.files).length === 0) {
-      return res.status(400).send('No hay archivo');
+      return res.status(400).json({message:'No hay archivo'});
     }
   
     const file = req.files.archivo;
@@ -19,12 +19,13 @@ ctrlCloud.guardarImg=async (req, res) => {
   
       const nuevaImg = await imgCloud.create({
         imgUrl: respon.secure_url,
+        publicId:respon.public_id
       });
   
-      res.send('Imagen guardada en Cloudinary.');
+      res.status(201).json({message:'Imagen guardada en Cloudinary.'});
     } catch (error) {
       console.error('Error al subir la imagen:', error);
-      res.status(500).send('Error al subir la imagen');
+      res.status(500).json({message:'Error al subir la imagen'});
     }
   };
 
@@ -76,12 +77,13 @@ ctrlCloud.borrarImg= async (req, res) => {
       }
   
       // Eliminar la imagen de Cloudinary
-      await cloudinary.uploader.destroy(imagen.public_id);
+      await cloudinary.uploader.destroy(imagen.publicId);
   
       // Eliminar la imagen de la base de datos
       await imagen.destroy();
+
   
-      res.jason({message:'Imagen eliminada de Cloudinary y de la base de datos.'});
+      res.status(201).json({message:'Imagen eliminada de Cloudinary y de la base de datos.'});
     } catch (error) {
       console.error('Error al eliminar la imagen:', error);
       res.status(500).json({message:'Error al eliminar la imagen.'});

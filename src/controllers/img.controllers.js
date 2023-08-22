@@ -99,7 +99,7 @@ ctrl.eliminarImg=async (req, res) => {
     }
 
     await fs.unlink(imagen.imgPath);
-
+    
     await imagen.destroy();
 
     res.status(201).json({message:'Imagen eliminada del sistema de archivos y de la base de datos.'});

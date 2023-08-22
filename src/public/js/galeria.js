@@ -114,13 +114,13 @@ const eliminarCloud= async (e) => {
         return;
     }
 
-    const response = await fetch(`/delete/${id}`, {
+    const response = await fetch(`/deleteCloud/${id}`, {
         method: 'DELETE',
     })
 
     const data = await response.json();
 
-    if (response.status !== 200) {
+    if (response.status !== 201) {
         Swal.fire({
             title: 'Error',
             text: data.message,
